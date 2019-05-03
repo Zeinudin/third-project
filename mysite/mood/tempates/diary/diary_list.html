@@ -1,0 +1,15 @@
+<div>
+	<div>
+	{% for d in object_list %}
+	<br>
+	<h3>{{ d.time_now}}</h3>
+	zametka - {{d.text}}
+	<br><br>
+	<div>
+	<a href="{% url "diary_detail" d.id %}">details</a>
+	<a href="{% url "diary_update" pk=d.pk %}">edit</a>
+	<a href="{% url "diary_delete" pk=d.pk %}">delete</a>
+	<a href="{% url "diary_create"%}">new</a>
+	</div>
+	{% endfor %}
+</div>

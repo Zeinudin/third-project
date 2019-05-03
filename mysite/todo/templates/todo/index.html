@@ -1,0 +1,37 @@
+{% extends 'todo/base_todo.html' %}
+
+
+{% block title %}
+	post_list
+{% endblock %}
+
+{% block content %}
+	<h1 class="mb-5">Post: </h1>
+	{% for n in Zadacha %}
+		<div class="card mb-4" >
+			<div class="card-header">
+				Zadacha
+			</div>
+			<div class="card-body">
+				<h5 class="card-title"><a href="{% url 'post_detail' pk=n.pk %}">{{ n.Opisanie }}</a></h5>
+				<p class="card-text"></p>
+					{% if n.status == 'Zaplanirovana' %}
+					<ul style="color: blue">{{ n.status }}</ul>
+					{% endif %}
+					{% if n.status == 'Vypolneno' %}
+					<ul style="color: green">{{ n.status }}</ul>
+					{% endif %}
+					{% if n.status == 'Otmeneno' %}
+					<ul style="color: red">{{ n.status }}</ul>
+					{% endif %}
+			</div>
+		</div>
+
+		
+	{% endfor %}
+{% endblock %}
+
+
+
+
+	
